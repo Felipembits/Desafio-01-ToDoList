@@ -12,11 +12,12 @@ interface TaskProps {
 interface TaskBoardProps {
     tarefas: TaskProps[];
     handleDeleteTask: (task:any) => void;
+    handleClickCheck: (task:any) => void;
   }
 
-export function TaskBoard({tarefas, handleDeleteTask}: TaskBoardProps) {
+export function TaskBoard({tarefas, handleDeleteTask, handleClickCheck}: TaskBoardProps) {
   
-  
+  const tarefasConcluidas = tarefas.filter((tarefa) => tarefa.checked === true)
   return (
     <section className={styles.taskBoardArea}>
       <header className={styles.taskBoardHeader}>
@@ -29,13 +30,13 @@ export function TaskBoard({tarefas, handleDeleteTask}: TaskBoardProps) {
         <div className={styles.counterTitle}>
           <h2 className={styles.concludedTasks}>Concluídas</h2>
           <span className={styles.counterBall}>
-            <p>0</p>
+            <p>{tarefasConcluidas.length + ' de ' + tarefas.length}</p>
           </span>
         </div>
       </header>
     <div className={styles.taskBoardBlock}>
         {tarefas.map((tarefa) => {
-            return <Task key={tarefa.id} handleDeleteTask={handleDeleteTask} {...tarefa}/>;
+            return <Task key={tarefa.id} handleDeleteTask={handleDeleteTask} {...tarefa} handleClickCheck={handleClickCheck}/>;
         })}
     </div>
     </section>
