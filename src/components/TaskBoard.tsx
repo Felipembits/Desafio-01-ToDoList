@@ -1,23 +1,22 @@
-// import { useState } from "react";
-// import { NoTasksHere } from "./NoTasksHere";
+import { NoTasksHere } from "./NoTasksHere";
 import { Task } from "./Task";
 import styles from "./TaskBoard.module.css";
 
 interface TaskProps {
-    title: string;
-    id: string;
-    checked?: boolean;
-  }  
+  title: string;
+  id: string;
+  checked?: boolean;
+}  
 
 interface TaskBoardProps {
-    tarefas: TaskProps[];
-    handleDeleteTask: (task:any) => void;
-    handleClickCheck: (task:any) => void;
-  }
+  tarefas: TaskProps[];
+  handleDeleteTask: (task: any) => void;
+  handleClickCheck: (task: any) => void;
+}
 
 export function TaskBoard({tarefas, handleDeleteTask, handleClickCheck}: TaskBoardProps) {
-  
-  const tarefasConcluidas = tarefas.filter((tarefa) => tarefa.checked === true)
+  const tarefasConcluidas = tarefas.filter((tarefa) => tarefa.checked === true);
+
   return (
     <section className={styles.taskBoardArea}>
       <header className={styles.taskBoardHeader}>
@@ -34,11 +33,15 @@ export function TaskBoard({tarefas, handleDeleteTask, handleClickCheck}: TaskBoa
           </span>
         </div>
       </header>
-    <div className={styles.taskBoardBlock}>
-        {tarefas.map((tarefa) => {
-            return <Task key={tarefa.id} handleDeleteTask={handleDeleteTask} {...tarefa} handleClickCheck={handleClickCheck}/>;
-        })}
-    </div>
+      <div className={styles.taskBoardBlock}>
+        { tarefas.length === 0 ? (
+          <NoTasksHere />
+        ) : (
+          tarefas.map((tarefa) => (
+            <Task key={tarefa.id} handleDeleteTask={handleDeleteTask} {...tarefa} handleClickCheck={handleClickCheck}/>
+          ))
+        )}
+      </div>
     </section>
   );
 }

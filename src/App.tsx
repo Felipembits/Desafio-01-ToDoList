@@ -2,11 +2,9 @@ import { useState } from 'react'
 import { Header } from "./components/Header";
 import { NewTask } from "./components/NewTask";
 import { TaskBoard } from "./components/TaskBoard";
-import { v4 as uuidv4 } from 'uuid';
 
 function App() {
-  const [tarefas, setTarefas] = useState([
-    { id: uuidv4(), title: "Teste de task", checked: true},
+  const [tarefas, setTarefas] = useState<any[]>([
   ]);
 
   function handleCreateNewTask(newTask: any) {
