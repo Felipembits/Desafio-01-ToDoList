@@ -1,0 +1,59 @@
+.taskBoardArea {
+    margin-top: 4.6rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 46rem;
+}
+
+.taskBoardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.counterTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.createdTasks, .concludedTasks {
+    line-height: 1.4;
+    font-size: .875rem;
+}
+
+.createdTasks {
+    color: var(--blue);
+}
+
+.concludedTasks {
+    color: var(--purple-dark);
+}
+
+.counterBall > p {
+    color: var(--gray-100);
+    font-size: .75rem;
+    background-color: var(--gray-400);
+    padding: 0.063rem 0.625rem;
+    border-radius: 999px;
+    background-position: center;
+    font-weight: 700;
+}
+
+.taskBoardBlock {
+    margin-top: 1.5rem;
+    border-radius: 8px;
+    border-top: 1px solid var(--gray-400);
+    
+    width: 100%;
+    max-width: 46rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

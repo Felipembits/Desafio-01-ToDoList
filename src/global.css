@@ -27,3 +27,16 @@
 body {
     background-color: var(--gray-600);
 }
+
+.appBody {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.appContainer {
+    width: 100%;
+    max-width: 46rem;
+    padding: 2rem;
+}
