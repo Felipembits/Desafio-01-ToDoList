@@ -21,6 +21,8 @@ export function NewTask({onCreateNewTask} : NewTaskProps) {
     onCreateNewTask(newTask)
   }  
 
+  const newTaskEmpty = newTaskText.length === 0
+
   function handleNewTaskText(event: ChangeEvent<HTMLInputElement>) {
     setNewTaskText(event.target.value)
   }
@@ -31,8 +33,9 @@ export function NewTask({onCreateNewTask} : NewTaskProps) {
         className={styles.newTaskInput}
         placeholder="Adicionar uma nova tarefa"
         onChange={handleNewTaskText}
+        required
       />
-      <button className={styles.newTaskBtn}>
+      <button className={styles.newTaskBtn} disabled={newTaskEmpty}>
         Criar <PlusCircle size={16}/>
       </button>
     </form>

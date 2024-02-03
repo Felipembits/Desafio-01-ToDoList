@@ -24,3 +24,13 @@
     display: flex;
     gap: .5rem;
 }
+
+.newTaskBtn:not(:disabled):hover {
+    background-color: var(--blue);
+}
+
+.newTaskBtn:disabled {
+    background-color: var(--blue-dark);
+    opacity: .9;
+    cursor: not-allowed;
+}
