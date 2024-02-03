@@ -5,13 +5,13 @@ interface TaskProps {
   title: string;
 }
 
-export function Task(tarefa: TaskProps) {
+export function Task({title}: TaskProps) {
   return (
     <div className={styles.taskContainer}>
       <div className={styles.taskInfo}>
         <button className={styles.checkCircle}><Circle size={24} weight="bold" /></button>
         <p>
-          {tarefa.title}
+          {title}
         </p>
       </div>
       <button className={styles.trash}>

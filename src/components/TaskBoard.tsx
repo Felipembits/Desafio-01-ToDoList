@@ -1,13 +1,19 @@
-import { useState } from "react";
-import { NoTasksHere } from "./NoTasksHere";
+// import { useState } from "react";
+// import { NoTasksHere } from "./NoTasksHere";
 import { Task } from "./Task";
 import styles from "./TaskBoard.module.css";
 
-export function TaskBoard() {
-  const [tarefas, setTarefas] = useState([
-    { title: "Teste de task" },
-    { title: "123123123" },
-  ]);
+interface TaskProps {
+    title: string;
+  }  
+
+interface TaskBoardProps {
+    tarefas: TaskProps[];
+}
+
+export function TaskBoard({tarefas}: TaskBoardProps) {
+  
+  
   return (
     <section className={styles.taskBoardArea}>
       <header className={styles.taskBoardHeader}>
@@ -25,9 +31,8 @@ export function TaskBoard() {
         </div>
       </header>
     <div className={styles.taskBoardBlock}>
-        <NoTasksHere />
-        {tarefas.map(tarefa => {
-            return <Task key={tarefa.title} {...tarefa} />;
+        {tarefas.map((tarefa) => {
+            return <Task key={tarefa.title} title={tarefa.title} />;
         })}
     </div>
     </section>
