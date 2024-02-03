@@ -5,13 +5,16 @@ import styles from "./TaskBoard.module.css";
 
 interface TaskProps {
     title: string;
+    id: string;
+    checked?: boolean;
   }  
 
 interface TaskBoardProps {
     tarefas: TaskProps[];
-}
+    handleDeleteTask: (task:any) => void;
+  }
 
-export function TaskBoard({tarefas}: TaskBoardProps) {
+export function TaskBoard({tarefas, handleDeleteTask}: TaskBoardProps) {
   
   
   return (
@@ -32,7 +35,7 @@ export function TaskBoard({tarefas}: TaskBoardProps) {
       </header>
     <div className={styles.taskBoardBlock}>
         {tarefas.map((tarefa) => {
-            return <Task key={tarefa.title} title={tarefa.title} />;
+            return <Task key={tarefa.id} handleDeleteTask={handleDeleteTask} {...tarefa}/>;
         })}
     </div>
     </section>

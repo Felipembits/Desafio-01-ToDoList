@@ -6,6 +6,7 @@
     gap: .75rem;
     width: 100%;
     justify-content: space-between;
+    max-width: 44rem;
 }
 
 .taskInfo {
