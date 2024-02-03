@@ -20,7 +20,7 @@ export function TaskBoard({tarefas}: TaskBoardProps) {
         <div className={styles.counterTitle}>
           <h2 className={styles.createdTasks}>Tarefas criadas</h2>
           <span className={styles.counterBall}>
-            <p>0</p>
+            <p>{tarefas.length}</p>
           </span>
         </div>
         <div className={styles.counterTitle}>
