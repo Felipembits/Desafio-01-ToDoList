@@ -1,4 +1,5 @@
 import { NoTasksHere } from './NoTasksHere'
+import { Task } from './Task'
 import styles from './TaskBoard.module.css'
 
 export function TaskBoard() {
@@ -16,6 +17,7 @@ export function TaskBoard() {
             </header>
             <div className={styles.taskBoardBlock}>
                 <NoTasksHere/>
+                <Task/>
             </div>
         </section>
     )
