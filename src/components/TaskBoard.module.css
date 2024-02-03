@@ -56,4 +56,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: .75rem;
+    margin-bottom: 1.5rem;
 }
